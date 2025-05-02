@@ -1,70 +1,46 @@
-(1)
+🧠 Spiral Classification with Neural Networks
+This project shows how to classify spiral-shaped data using a neural network built with TensorFlow/Keras.
+It tackles a classic non-linear classification problem involving three intertwined spirals! 🌀🌀🌀
 
-Spiral Classification with Neural Networks
-This project demonstrates how to classify spiral data using a neural network built with TensorFlow/Keras. The model learns to distinguish between three intertwined spirals, a classic non-linear classification problem
+📦 What's Inside?
+✅ Spiral data generation
+✅ Data preprocessing & scaling 🔄
+✅ Neural network implementation 🤖
+✅ Model training with smart callbacks ⚙️
+✅ Performance evaluation 📊
+✅ Cool visualizations 🎨
 
+📊 Dataset Details
+📌 Type: Synthetic spiral data
 
+🎯 Classes: 3 (labels: 0, 1, 2)
 
+🔢 Points: 999 (333 per class)
 
+✂️ Split: 80% Training / 20% Testing
 
+📍 Features: 2D coordinates (x, y)
 
-The project contains:
+🏋️ Model Training
+⚙️ Optimizer: Adam
 
-Spiral data generation
+🧮 Loss Function: Sparse Categorical Crossentropy
 
-Data preprocessing and scaling
+📈 Metric: Accuracy
 
-Neural network implementation
+🧠 Callbacks:
+⏹️ EarlyStopping: patience=20
 
-Model training with callbacks
+📉 ReduceLROnPlateau: factor=0.1, patience=10
 
-Performance evaluation
+⏳ Max Epochs: 200 (training stops early if no improvement)
 
-Visualization of results
+🏆 Results
+📌 Typical Accuracy
 
-Dataset
-Synthetic spiral data with 3 classes
+✅ Training: ~99%
 
-999 total points (333 per class)
+✅ Validation: ~98%
 
-80-20 train-test split
-
-Features: 2D coordinates (x, y)
-
-Target: Class labels (0, 1, 2)
-
-
-
-
-
-
-
-Training
-Optimizer: Adam
-
-Loss: Sparse Categorical Crossentropy
-
-Metrics: Accuracy
-
-Callbacks:
-
-Early Stopping (patience=20)
-
-ReduceLROnPlateau (factor=0.1, patience=10)
-
-Epochs: 200 (stops early if no improvement)
-
-
-
-
-
-
-Results
-Typical performance:
-
-Training Accuracy: ~99%
-
-Validation Accuracy: ~98%
-
-Confusion Matrix shows excellent class separation
+🧩 Confusion Matrix: Shows clear class separation with excellent performance!
 
