@@ -81,3 +81,47 @@ accuracy = np.mean(np.argmax(activation2.output, axis=1) == y)
 
 🧩 Confusion Matrix: Shows clear class separation with excellent performance!
 
+
+
+
+# SPIRAL DATASET RESOLVED BY BACKPROPAGATION (WITHOUT OPTIMIZER)
+
+This is a complete implementation of a 2-layer neural network with forward/backward propagation, designed specifically for classifying spiral data. The code demonstrates core deep learning concepts without any high-level frameworks.
+
+
+Layers
+
+Layer_Dense: Fully-connected layers with:
+
+Weight initialization (0.01 * randn)
+
+Bias initialization (zeros)
+
+Forward/backward passes
+
+Activations
+
+Activation_ReLU: Forward/backward with gradient clipping
+
+Activation_Softmax: Stable implementation (w/ max subtraction)
+
+Combined Softmax + CrossEntropy for optimized gradients
+
+Loss
+
+Loss_CategoricalCrossentropy: Handles:
+
+Raw class labels ([0, 1, 2])
+
+One-hot encoded labels
+
+Numerical stability (clipping to [1e-7, 1-1e-7])
+
+Data
+
+Uses nnfs.datasets.spiral_data(samples=100, classes=3)
+
+Visualized with matplotlib:
+plt.scatter(X[:, 0], X[:, 1], c=y, cmap='brg')
+
+
