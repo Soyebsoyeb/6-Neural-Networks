@@ -86,42 +86,82 @@ accuracy = np.mean(np.argmax(activation2.output, axis=1) == y)
 
 # SPIRAL DATASET RESOLVED BY BACKPROPAGATION (WITHOUT OPTIMIZER)
 
-This is a complete implementation of a 2-layer neural network with forward/backward propagation, designed specifically for classifying spiral data. The code demonstrates core deep learning concepts without any high-level frameworks.
+This is a complete implementation of a 2-layer neural network with forward and backward propagation, designed specifically for classifying spiral data 🌪️. It demonstrates core deep learning concepts using only NumPy, without any high-level frameworks.
 
+⚙️ Exact Code Features
+🧱 Layers
+Layer_Dense (Fully-connected layer):
 
-Layers
+✅ Weight initialization: 0.01 * np.random.randn(...)
 
-Layer_Dense: Fully-connected layers with:
+✅ Bias initialization: np.zeros(...)
 
-Weight initialization (0.01 * randn)
+🔄 Forward & backward propagation supported
 
-Bias initialization (zeros)
+⚡ Activations
+Activation_ReLU:
 
-Forward/backward passes
+Forward pass ✔️
 
-Activations
+Backward pass with gradient clipping 🔁
 
-Activation_ReLU: Forward/backward with gradient clipping
+Activation_Softmax:
 
-Activation_Softmax: Stable implementation (w/ max subtraction)
+Stable implementation (max subtraction for numerical stability) 🧮
 
-Combined Softmax + CrossEntropy for optimized gradients
+Combined: Softmax + CrossEntropy for optimized gradients 🚀
 
-Loss
+📉 Loss
+Loss_CategoricalCrossentropy:
 
-Loss_CategoricalCrossentropy: Handles:
+Accepts raw class labels: [0, 1, 2] 🔢
 
-Raw class labels ([0, 1, 2])
+Accepts one-hot encoded labels: [[1,0,0], ...] ✅
 
-One-hot encoded labels
+Numerical stability with output clipping: [1e-7, 1 - 1e-7] 🛡️
 
-Numerical stability (clipping to [1e-7, 1-1e-7])
+📊 Data
+Uses: nnfs.datasets.spiral_data(samples=100, classes=3) 🌪️
 
-Data
-
-Uses nnfs.datasets.spiral_data(samples=100, classes=3)
-
-Visualized with matplotlib:
+Visualized via Matplotlib:
 plt.scatter(X[:, 0], X[:, 1], c=y, cmap='brg')
 
+The script will
+✅ Generate spiral data
+✅ Run forward propagation
+✅ Compute loss and accuracy
+✅ Perform backpropagation
+
+🖨️ Expected Output:
+
+First 5 outputs:
+[[0.33 0.33 0.33]
+ [0.33 0.33 0.33]
+ ...]
+
+loss: 1.0986
+acc: 0.34
+🔍 Key Technical Details
+
+🔁 Forward Pass
+dense1.forward(X)                     # Input → Hidden (2→3)
+activation1.forward(dense1.output)   # ReLU Activation
+dense2.forward(activation1.output)   # Hidden → Output (3→3)
+loss = loss_activation.forward(dense2.output, y)  # Softmax + Loss
+
+🔁 Backward Pass
+loss_activation.backward(loss_activation.output, y)
+dense2.backward(loss_activation.dinputs)
+activation1.backward(dense2.dinputs)
+dense1.backward(activation1.dinputs)
+📐 Gradient Calculations
+Weights: inputs.T @ dvalues
+
+Biases: np.sum(dvalues, axis=0)
+
+Inputs: dvalues @ weights.T
+
+📈 Visualization
+Spiral data example:
+🌀 (Code will generate and plot automatically with Matplotlib)
 
